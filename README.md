@@ -23,7 +23,7 @@ Application de gestion de tâches simple basée sur une API REST développée av
 
 ### Backend
 ```bash
-git clone https://github.com/TON-USER/devops-tp-prenom-nom.git
+git clone https://github.com/TON-USER/devops-tp-ramla-argui.git
 cd devops-tp-prenom-nom/backend
 ```
 
