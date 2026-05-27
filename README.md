@@ -24,7 +24,6 @@ Application de gestion de tâches simple basée sur une API REST développée av
 ### Backend
 ```bash
 git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
-```bash
 cd devops-tp-ramla-argui/backend
 ```
 
