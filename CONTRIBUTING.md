@@ -86,13 +86,19 @@ chore(deps): install express
 * Ne jamais push directement sur main ou develop
 
 ### 7. Résumé visuel
-main  ←── merge stable finalisé
-↑
-develop ←─ PR ← feature/add-task
-← PR ← feature/delete-task
-← PR ← feature/update-task
-← PR ← feature/frontend-ui
+
+```
+main
+  ↑
+  └── develop
+        ↑
+        ├── PR ← feature/add-task
+        ├── PR ← feature/delete-task
+        ├── PR ← feature/update-task
+        └── PR ← feature/frontend-ui
+```
+
 ✅ Workflow recommandé :
-Feature branch → PR → develop → main
-Squash and Merge pour garder un historique propre
-Ne jamais push directement sur main ou develop
+- Feature branch → PR → develop → main
+- Squash and Merge pour garder un historique propre
+- Ne jamais push directement sur main ou develop
