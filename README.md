@@ -1,4 +1,5 @@
 # Task Manager Lite ✅
+![CI](https://github.com/ramlaa2544/devops-tp-Ramla-Argui-/actions/workflows/ci.yml/badge.svg)
 
 Application de gestion de tâches simple basée sur une API REST développée avec Node.js et Express, et une interface web en HTML / CSS / JavaScript.
 
