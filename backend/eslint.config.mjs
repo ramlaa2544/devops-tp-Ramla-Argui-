@@ -8,6 +8,7 @@ export default [
         process: "readonly",
         console: "readonly",
         require: "readonly",
+        module: "readonly",
       },
     },
   },
