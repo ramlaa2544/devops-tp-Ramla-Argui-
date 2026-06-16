@@ -1,0 +1,35 @@
+{
+  "name": "devops-tp-ramla-argui-",
+  "version": "1.0.0",
+  "description": "Application de gestion de tâches simple basée sur une API REST développée avec Node.js et Express, et une interface web en HTML / CSS / JavaScript.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo 'No tests yet'",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ramlaa2544/devops-tp-Ramla-Argui-/issues"
+  },
+  "homepage": "https://github.com/ramlaa2544/devops-tp-Ramla-Argui-#readme",
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "lint-staged": "^17.0.5"
+  },
+  "lint-staged": {
+    "backend/src/*.js": [
+      "bash -c 'cd backend && npx eslint --fix'",
+      "bash -c 'cd backend && npx prettier --write'"
+    ]
+  }
+}

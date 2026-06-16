@@ -1,4 +1,5 @@
 # Task Manager Lite ✅
+![CI](https://github.com/ramlaa2544/devops-tp-Ramla-Argui-/actions/workflows/ci.yml/badge.svg)
 
 Application de gestion de tâches simple basée sur une API REST développée avec Node.js et Express, et une interface web en HTML / CSS / JavaScript.
 
@@ -20,6 +21,21 @@ Application de gestion de tâches simple basée sur une API REST développée av
 ---
 
 ## Lancer le projet
+## Lancer le projet
+
+```bash
+git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
+cd devops-tp-Ramla-Argui-
+cp .env.example .env
+# Remplir les valeurs dans .env (DB_PASSWORD, JWT_SECRET...)
+docker compose up
+```
+
+L'app est accessible sur http://localhost:3000
+
+**Pré-requis**
+- Docker Desktop installé et lancé
+- Git installé
 
 ### Backend
 ```bash
@@ -103,4 +119,4 @@ Task Manager Lite/
 
 ## Auteur
 
-Ramla Argui 
+Ramla ,Argui 
