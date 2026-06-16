@@ -36,3 +36,4 @@
 **Pourquoi critique ?** Nécessaire pour afficher le détail d'une tâche spécifique.
 - Test unitaire : vérifier qu'une tâche inexistante retourne null
 - Test intégration : GET /tasks/:id retourne 200 ou 404 si introuvable
+![alt text](<test coverage.PNG>)
