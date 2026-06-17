@@ -211,6 +211,13 @@ Format prévu :
 | .env commité par accident | Faible | Critique | .gitignore + Secret scanning |
 
 ## 11. Commandes de lancement
+### En ligne (Render)
+
+| Service | URL |
+|---------|-----|
+| API en ligne | https://devops-tp-ramla-argui.onrender.com |
+| Health check | https://devops-tp-ramla-argui.onrender.com/health |
+| Tâches | https://devops-tp-ramla-argui.onrender.com/tasks |
 
 ### Avec Docker (recommandé)
 
@@ -251,7 +258,7 @@ npm start
 - [x] Connecter le frontend au backend via fetch API
 - [x] Conteneuriser le frontend avec Nginx
 - [x] Docker Compose avec 3 services (frontend, backend, db)
+- [x] Déployer sur Render — https://devops-tp-ramla-argui.onrender.com
 - [ ] Ajouter des tests d'intégration pour les routes
-- [ ] Déployer sur Render ou Railway (T35)
 - [ ] Mettre en place les logs avec morgan
 - [ ] Ajouter l'authentification JWT
