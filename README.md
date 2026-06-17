@@ -1,5 +1,7 @@
 # Task Manager Lite ✅
+
 ![CI](https://github.com/ramlaa2544/devops-tp-Ramla-Argui-/actions/workflows/ci.yml/badge.svg)
+[![Deploy](https://img.shields.io/badge/API-Live-green)](https://devops-tp-ramla-argui.onrender.com)
 
 Application de gestion de tâches simple basée sur une API REST développée avec Node.js et Express, et une interface web en HTML / CSS / JavaScript.
 
@@ -21,11 +23,12 @@ Application de gestion de tâches simple basée sur une API REST développée av
 ---
 
 ## Lancer le projet
-## Lancer le projet
 
 **Pré-requis**
 - Docker Desktop installé et lancé
 - Git installé
+
+### Avec Docker (recommandé)
 
 ```bash
 git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
@@ -35,110 +38,99 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
+### Sans Docker
+
+```bash
+# Backend
+cd backend
+npm install
+npm start
+```
+
+Ouvrir `frontend/index.html` dans le navigateur.
+
 ### URLs d'accès
 
 | Service | URL |
 |---------|-----|
-| Frontend | http://localhost:8080 |
-| Backend API | http://localhost:3000 |
-| Health check | http://localhost:3000/health |
-| Tâches | http://localhost:3000/tasks |
-## Lancer le projet
-
-```bash
-git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
-cd devops-tp-Ramla-Argui-
-cp .env.example .env
-# Remplir les valeurs dans .env (DB_PASSWORD, JWT_SECRET...)
-docker compose up
-```
-
-L'app est accessible sur http://localhost:3000
-
-**Pré-requis**
-- Docker Desktop installé et lancé
-- Git installé
-
-### Backend
-```bash
-git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
-cd devops-tp-ramla-argui/backend
-```
-
-1. Installer les dépendances :
-
-```bash
-   npm install
-```
-
-2. Démarrer le serveur backend :
-
-```bash
-   npm start
-```
-
-API accessible sur `http://localhost:3000/`
-
-### Frontend
-```bash
-cd frontend
-```
-
-Ouvrir l'application :
-
-```bash
-open index.html
-```
-
-Ou ouvrir le fichier manuellement dans le navigateur.
-
-Application accessible sur `http://localhost:5500/` (Live Server) ou via le chemin du fichier.
+| Frontend (local) | http://localhost:8080 |
+| Backend API (local) | http://localhost:3000 |
+| Health check (local) | http://localhost:3000/health |
+| **API en ligne** | https://devops-tp-ramla-argui.onrender.com |
+| **Health check en ligne** | https://devops-tp-ramla-argui.onrender.com/health |
 
 ---
 
 ## Tester
 
 ```bash
-# Backend
 cd backend
 npm test
+npm run test:coverage
 ```
 
 Tests inclus :
-- Ajouter une tâche
-- Supprimer une tâche
-- Récupérer toutes les tâches
-
----
+- Validation d'une tâche
+- Normalisation du statut
+- Marquer une tâche comme terminée
+- Mock IA pour suggestion de priorité
 
 ---
 
 ## Architecture
 
-The project structure is documented in the docs/ folder.
-
+La structure du projet est documentée dans le dossier [`docs/`](./docs/).
 Task Manager Lite/
 
-├── backend/        # Node.js + Express API  
-│   ├── server.js  
-│   ├── routes/  
-│   └── tasks.json  
+├── backend/              # Node.js + Express API
 
-├── frontend/       # HTML / CSS / JavaScript UI  
-│   ├── index.html  
-│   ├── style.css  
-│   └── script.js  
+│   ├── src/
 
-├── docs/           # DevOps documentation  
-│   ├── architecture.md  
-│   ├── devops-strategy.md  
-│   ├── tests.md  
-│   └── security.md  
+│   │   ├── server.js
 
-└── .github/        # CI/CD workflows  
+│   │   ├── tasks.js
 
+│   │   └── routes/
+
+│   │       └── tasks.js
+
+│   ├── tests/
+
+│   └── Dockerfile
+
+├── frontend/             # HTML / CSS / JavaScript UI
+
+│   ├── index.html
+
+│   ├── style.css
+
+│   ├── script.js
+
+│   ├── Dockerfile
+
+│   └── nginx.conf
+
+├── docs/                 # Documentation DevOps
+
+│   ├── architecture.md
+
+│   ├── devops-strategy.md
+
+│   ├── tests.md
+
+│   └── security.md
+
+├── docker-compose.yml
+
+└── .github/              # CI/CD workflows
+
+└── workflows/
+
+└── ci.yml
 ---
 
 ## Auteur
 
-Ramla ,Argui 
+**Ramla Argui** — étudiante en développement logiciel et DevOps.
+
+🔗 [GitHub](https://github.com/ramlaa2544)
