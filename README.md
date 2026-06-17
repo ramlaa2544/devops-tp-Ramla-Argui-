@@ -23,6 +23,28 @@ Application de gestion de tâches simple basée sur une API REST développée av
 ## Lancer le projet
 ## Lancer le projet
 
+**Pré-requis**
+- Docker Desktop installé et lancé
+- Git installé
+
+```bash
+git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
+cd devops-tp-Ramla-Argui-
+cp .env.example .env
+# Remplir les valeurs dans .env
+docker compose up -d --build
+```
+
+### URLs d'accès
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:8080 |
+| Backend API | http://localhost:3000 |
+| Health check | http://localhost:3000/health |
+| Tâches | http://localhost:3000/tasks |
+## Lancer le projet
+
 ```bash
 git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
 cd devops-tp-Ramla-Argui-
