@@ -2,17 +2,16 @@
 
 ## 1. Architecture technique cible
 
-Task Manager Lite est une application web CRUD composée de deux parties :
+Task Manager Lite est une application web CRUD composée de trois parties :
 
+- **Frontend** : Interface légère en HTML / CSS / JavaScript servie par Nginx sur le port 8080
 - **Backend** : API REST développée avec Node.js et Express, exposée sur le port 3000
-- **Frontend** : Interface légère en HTML / CSS / JavaScript
 - **Base de données** : PostgreSQL pour la persistance des données
-- **Conteneurisation** : Docker et Docker Compose pour l'orchestration des services
-[Client Browser]
+[Client Browser :8080]
 
 ↓
 
-[Frontend HTML/CSS/JS]
+[Frontend Nginx :8080]
 
 ↓
 
@@ -30,7 +29,11 @@ devops-tp-Ramla-Argui-/
 
 │   │   ├── server.js     # Point d'entrée
 
-│   │   └── tasks.js      # Logique métier
+│   │   ├── tasks.js      # Logique métier
+
+│   │   └── routes/
+
+│   │       └── tasks.js  # Routes CRUD
 
 │   ├── tests/        # Tests unitaires Jest
 
@@ -39,6 +42,16 @@ devops-tp-Ramla-Argui-/
 │   └── package.json
 
 ├── frontend/             # Interface HTML/CSS/JS
+
+│   ├── index.html
+
+│   ├── style.css
+
+│   ├── script.js
+
+│   ├── Dockerfile        # Nginx
+
+│   └── nginx.conf
 
 ├── docs/                 # Documentation DevOps
 
@@ -83,12 +96,17 @@ fix(tasks): fix validation error
 docs(readme): update launch instructions
 ## 4. Services Docker prévus
 
-Le fichier `docker-compose.yml` orchestre 2 services :
+Le fichier `docker-compose.yml` orchestre 3 services :
+
+**Frontend**
+- Image : Nginx Alpine
+- Port : 8080
+- Sert les fichiers HTML/CSS/JS
 
 **Backend**
 - Image : Node.js 20 Alpine (multi-stage)
 - Port : 3000
-- Dépend de la base de données
+- API REST avec routes CRUD
 
 **Base de données**
 - Image : PostgreSQL 16
@@ -171,15 +189,17 @@ Fonctionnalités :
 
 Le serveur Express loge :
 - Démarrage du serveur : `Server running on port 3000`
-- Requêtes entrantes (à implémenter avec morgan)
+- Requêtes entrantes via les routes CRUD
 - Erreurs et exceptions
 
 Format prévu :
-[2026-06-16T14:00:00] GET /health 200 2ms
+[2026-06-17T14:00:00] GET /health 200 2ms
 
-[2026-06-16T14:00:01] POST /tasks 201 5ms
+[2026-06-17T14:00:01] POST /tasks 201 5ms
 
-[2026-06-16T14:00:02] DELETE /tasks/1 200 3ms
+[2026-06-17T14:00:02] DELETE /tasks/1 200 3ms
+
+[2026-06-17T14:00:03] PUT /tasks/1 200 4ms
 ## 10. Risques DevOps
 
 | Risque | Probabilité | Impact | Action |
@@ -192,33 +212,45 @@ Format prévu :
 
 ## 11. Commandes de lancement
 
+### Avec Docker (recommandé)
+
 ```bash
-# Cloner le projet
 git clone https://github.com/ramlaa2544/devops-tp-Ramla-Argui-.git
 cd devops-tp-Ramla-Argui-
-
-# Configurer l'environnement
 cp .env.example .env
 # Remplir les valeurs dans .env
-
-# Lancer avec Docker
-docker compose up
-
-# L'app est accessible sur http://localhost:3000
+docker compose up -d --build
 ```
 
-Sans Docker :
+### URLs d'accès
+
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost:8080 |
+| Backend API | http://localhost:3000 |
+| Health check | http://localhost:3000/health |
+| Tâches | http://localhost:3000/tasks |
+
+### Sans Docker
+
 ```bash
+# Backend
 cd backend
 npm install
 npm start
+# API accessible sur http://localhost:3000
+
+# Frontend
+# Ouvrir frontend/index.html dans le navigateur
 ```
 
 ## 12. Prochaines actions
 
-- [ ] Développer les routes CRUD complètes (POST, GET, PUT, DELETE /tasks)
-- [ ] Développer le frontend HTML/CSS/JS
-- [ ] Connecter le frontend au backend via fetch API
+- [x] Développer les routes CRUD complètes (POST, GET, PUT, DELETE /tasks)
+- [x] Développer le frontend HTML/CSS/JS
+- [x] Connecter le frontend au backend via fetch API
+- [x] Conteneuriser le frontend avec Nginx
+- [x] Docker Compose avec 3 services (frontend, backend, db)
 - [ ] Ajouter des tests d'intégration pour les routes
 - [ ] Déployer sur Render ou Railway (T35)
 - [ ] Mettre en place les logs avec morgan

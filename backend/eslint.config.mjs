@@ -9,6 +9,8 @@ export default [
         console: "readonly",
         require: "readonly",
         module: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
       },
     },
   },
